@@ -1,0 +1,20 @@
+pipeline {
+		agent any
+		stages{
+		    
+			stage('Git Check-out'){
+				steps{
+				git 'https://github.com/thockin/test.git'
+				sh"git rev-parse --short HEAD"
+				}
+			}
+				stage('Commmit Code'){
+					steps{
+					sh"echo ${env.GIT_COMMIT}"
+					sh"echo ${env.GIT_COMMIT}"
+					
+					sh"echo ${env.BRANCH_NAME}"
+					}
+				}
+			}
+	}
